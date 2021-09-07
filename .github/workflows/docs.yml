@@ -72,7 +72,7 @@ jobs:
         run: |
           source /tmp/pyjanitor-examples_env/bin/activate
           python -m ipykernel install --user --name pyjanitor-examples
-          make docs
+          mkdocs build
 
       - name: Deploy website
         uses: peaceiris/actions-gh-pages@v3
