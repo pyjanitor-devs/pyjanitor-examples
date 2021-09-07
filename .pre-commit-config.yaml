@@ -28,3 +28,7 @@ repos:
   hooks:
     - id: flake8
       args: [--exclude, nbconvert_config.py]
+- repo: https://github.com/kynan/nbstripout
+  rev: 0.5.0
+  hooks:
+    - id: nbstripout
