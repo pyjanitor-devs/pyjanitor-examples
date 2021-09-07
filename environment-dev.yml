@@ -1,0 +1,18 @@
+# Developer environment
+name: pyjanitor-examples
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.9
+  - pyjanitor
+  - numpy
+  - pandas
+  - scipy
+  - jupyter
+  - jupyterlab
+  - ipykernel
+  - mkdocs
+  - mkdocs-material
+  - pre-commit
+  - pip:
+      - mknotebooks
