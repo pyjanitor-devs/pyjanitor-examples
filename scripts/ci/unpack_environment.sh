@@ -1,4 +1,4 @@
-mkdir -p /tmp/pyjanitor-dev_env
-tar -xzf pyjanitor-dev.tar.gz -C /tmp/pyjanitor-dev_env
-source /tmp/pyjanitor-dev_env/bin/activate
+mkdir -p /tmp/pyjanitor-examples_env
+tar -xzf pyjanitor-examples.tar.gz -C /tmp/pyjanitor-examples_env
+source /tmp/pyjanitor-examples_env/bin/activate
 conda-unpack
