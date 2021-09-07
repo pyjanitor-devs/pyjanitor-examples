@@ -27,7 +27,7 @@ jobs:
         # so we ensure that the hash key contains both their hashes.
         with:
           path: |
-            pyjanitor-dev.tar.gz
+            pyjanitor-examples.tar.gz
           key: ${{ runner.os }}-env.${{ hashFiles('environment-dev.yml') }}
 
       - name: Build environment
@@ -41,14 +41,14 @@ jobs:
 
       - name: Run conda-pack
         if: steps.cache-environment.outputs.cache-hit != 'true'
-        run: conda pack -n pyjanitor-dev -o pyjanitor-dev.tar.gz
+        run: conda pack -n pyjanitor-examples -o pyjanitor-examples.tar.gz
 
       # See: https://github.com/actions/upload-artifact
       - name: Upload environment
         uses: actions/upload-artifact@v2
         with:
-          name: pyjanitor-dev-tarball
-          path: pyjanitor-dev.tar.gz
+          name: pyjanitor-examples-tarball
+          path: pyjanitor-examples.tar.gz
 
   docs:
     name: Build static site docs
@@ -63,7 +63,7 @@ jobs:
       - name: Download environment tarball
         uses: actions/download-artifact@v2
         with:
-          name: pyjanitor-dev-tarball
+          name: pyjanitor-examples-tarball
 
       - name: Unpack environment and activate it
         run: |
@@ -71,8 +71,8 @@ jobs:
 
       - name: Build docs
         run: |
-          source /tmp/pyjanitor-dev_env/bin/activate
-          python -m ipykernel install --user --name pyjanitor-dev
+          source /tmp/pyjanitor-examples_env/bin/activate
+          python -m ipykernel install --user --name pyjanitor-examples
           make docs
 
       # - name: Deploy website
