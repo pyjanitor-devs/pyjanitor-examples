@@ -13,6 +13,7 @@ dependencies:
   - ipykernel
   - mkdocs
   - mkdocs-material
+  - seaborn
   - pre-commit
   - pip:
       - mknotebooks
