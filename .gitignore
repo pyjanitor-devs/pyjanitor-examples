@@ -128,5 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#
+# Custom
 *.md.tmp
+.DS_Store
