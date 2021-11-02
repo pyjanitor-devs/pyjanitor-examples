@@ -15,5 +15,6 @@ dependencies:
   - mkdocs-material
   - seaborn
   - pre-commit
+  - pip
   - pip:
       - mknotebooks
