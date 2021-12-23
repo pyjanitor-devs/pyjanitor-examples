@@ -3,7 +3,7 @@ name: pyjanitor-examples
 channels:
   - conda-forge
 dependencies:
-  - python>=3.9
+  - python=3.9
   - pyjanitor>=0.22.0
   - numpy
   - pandas
