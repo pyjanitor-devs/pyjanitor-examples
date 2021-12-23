@@ -5,17 +5,18 @@ channels:
 dependencies:
   - python=3.9
   - pyjanitor>=0.22.0
+  - ipykernel
+  - jupyter
+  - jupyterlab
+  - mkdocs
+  - mkdocs-material
   - numpy
   - openpyxl
   - pandas
-  - scipy
-  - jupyter
-  - jupyterlab
-  - ipykernel
-  - mkdocs
-  - mkdocs-material
-  - seaborn
-  - pre-commit
   - pip
+  - pre-commit
+  - pyprojroot
+  - scipy
+  - seaborn
   - pip:
       - mknotebooks
