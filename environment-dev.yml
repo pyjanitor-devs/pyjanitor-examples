@@ -6,12 +6,13 @@ dependencies:
   - python=3.9
   - pyjanitor>=0.22.0
   - black=22.1.0
-  - nbqa=1.3.0
   - ipykernel
   - jupyter
   - jupyterlab
+  - missingno
   - mkdocs
   - mkdocs-material
+  - nbqa=1.3.0
   - numpy
   - openpyxl
   - pandas
