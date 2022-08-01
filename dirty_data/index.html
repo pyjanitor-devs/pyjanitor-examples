@@ -1,0 +1,2072 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pyjanitor-devs.github.io/pyjanitor/dirty_data/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>Dirty data - pyjanitor documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/nb_mods.css">
+    
+      <link rel="stylesheet" href="../css/apidocs.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/nord.min.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#processing-dirty-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="pyjanitor documentation" class="md-header__button md-logo" aria-label="pyjanitor documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M448 336V48c0-26.51-21.5-48-48-48H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1 0-11.72-6.607-21.52-16-27.1v-81.36c9.8-9.64 16-22.24 16-36.44zM143.1 128h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zm0 64h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zM384 448H96c-17.67 0-32-14.33-32-32s14.33-32 32-32h288v64z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            pyjanitor documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dirty data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pyjanitor-devs/pyjanitor-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pyjanitor-devs/pyjanitor-examples
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="pyjanitor documentation" class="md-nav__button md-logo" aria-label="pyjanitor documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M448 336V48c0-26.51-21.5-48-48-48H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1 0-11.72-6.607-21.52-16-27.1v-81.36c9.8-9.64 16-22.24 16-36.44zM143.1 128h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zm0 64h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zM384 448H96c-17.67 0-32-14.33-32-32s14.33-32 32-32h288v64z"/></svg>
+
+    </a>
+    pyjanitor documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pyjanitor-devs/pyjanitor-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pyjanitor-devs/pyjanitor-examples
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        pyjanitor-examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Row_to_Names/" class="md-nav__link">
+        Row to Names
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anime/" class="md-nav__link">
+        Anime
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bad_values/" class="md-nav__link">
+        Bad values
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bird_call/" class="md-nav__link">
+        Bird call
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../board_games/" class="md-nav__link">
+        Board games
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_when/" class="md-nav__link">
+        Case when
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complete/" class="md-nav__link">
+        Complete
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conditional_join/" class="md-nav__link">
+        Conditional join
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dirty data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Dirty data
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-packages" class="md-nav__link">
+    Load Packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-data" class="md-nav__link">
+    Load Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-the-nan-values" class="md-nav__link">
+    Visualizing the NaN Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleaning-column-names" class="md-nav__link">
+    Cleaning Column Names
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renaming-individual-columns" class="md-nav__link">
+    Renaming Individual Columns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coalescing-columns" class="md-nav__link">
+    Coalescing Columns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dealing-with-excel-dates" class="md-nav__link">
+    Dealing with Excel Dates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-the-dataframe-before-and-after-pyjanitor" class="md-nav__link">
+    Comparing the DataFrame Before and After pyjanitor
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expand_grid/" class="md-nav__link">
+        Expand grid
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../french_trains/" class="md-nav__link">
+        French trains
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groupby_agg/" class="md-nav__link">
+        Groupby agg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../normalize/" class="md-nav__link">
+        Normalize
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pivot_long_wide/" class="md-nav__link">
+        Pivot long wide
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyjanitor_intro/" class="md-nav__link">
+        Pyjanitor intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sort_naturally/" class="md-nav__link">
+        Sort naturally
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teacher_pupil/" class="md-nav__link">
+        Teacher pupil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transform_column/" class="md-nav__link">
+        Transform column
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-packages" class="md-nav__link">
+    Load Packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-data" class="md-nav__link">
+    Load Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-the-nan-values" class="md-nav__link">
+    Visualizing the NaN Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleaning-column-names" class="md-nav__link">
+    Cleaning Column Names
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renaming-individual-columns" class="md-nav__link">
+    Renaming Individual Columns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coalescing-columns" class="md-nav__link">
+    Coalescing Columns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dealing-with-excel-dates" class="md-nav__link">
+    Dealing with Excel Dates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-the-dataframe-before-and-after-pyjanitor" class="md-nav__link">
+    Comparing the DataFrame Before and After pyjanitor
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/pyjanitor-devs/pyjanitor-examples/edit/master/docs/dirty_data.ipynb" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var jupyterWidgetsScript = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://mybinder.org/v2/gh/pyjanitor-devs/pyjanitor-examples/dev?urlpath=%2Ftree%2Fdocs%2Fdirty_data.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="processing-dirty-data">Processing Dirty Data</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="background">Background</h2>
+<p>This is fake data generated to demonstrate the capabilities of <code>pyjanitor</code>.  It contains a bunch of common problems that we regularly encounter when working with data.  Let's go fix it!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="load-packages">Load Packages</h3>
+<p>Importing <code>pyjanitor</code> is all that's needed to give Pandas Dataframes extra methods to work with your data.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">import janitor
+import matplotlib.pyplot as plt
+import missingno as mn
+import pandas as pd
+from pyprojroot import here
+
+%matplotlib inline
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="load-data">Load Data</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">df = pd.read_excel(here() / &quot;data/dirty_data.xlsx&quot;, engine=&quot;openpyxl&quot;)
+df
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Employee Status</th>
+      <th>Subject</th>
+      <th>Hire Date</th>
+      <th>% Allocated</th>
+      <th>Full time?</th>
+      <th>do not edit! ---&gt;</th>
+      <th>Certification</th>
+      <th>Certification.1</th>
+      <th>Certification.2</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>PE</td>
+      <td>39690.0</td>
+      <td>0.75</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>Drafting</td>
+      <td>39690.0</td>
+      <td>0.25</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alicia</td>
+      <td>Keys</td>
+      <td>Teacher</td>
+      <td>Music</td>
+      <td>37118.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Instr. music</td>
+      <td>Vocal music</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ada</td>
+      <td>Lovelace</td>
+      <td>Teacher</td>
+      <td>NaN</td>
+      <td>27515.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>PENDING</td>
+      <td>Computers</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Desus</td>
+      <td>Nice</td>
+      <td>Administration</td>
+      <td>Dean</td>
+      <td>41431.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>PENDING</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Chien-Shiung</td>
+      <td>Wu</td>
+      <td>Teacher</td>
+      <td>Physics</td>
+      <td>11037.0</td>
+      <td>0.50</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Chien-Shiung</td>
+      <td>Wu</td>
+      <td>Teacher</td>
+      <td>Chemistry</td>
+      <td>11037.0</td>
+      <td>0.50</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>James</td>
+      <td>Joyce</td>
+      <td>Teacher</td>
+      <td>English</td>
+      <td>32994.0</td>
+      <td>0.50</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>English 6-12</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Hedy</td>
+      <td>Lamarr</td>
+      <td>Teacher</td>
+      <td>Science</td>
+      <td>27919.0</td>
+      <td>0.50</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>PENDING</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Carlos</td>
+      <td>Boozer</td>
+      <td>Coach</td>
+      <td>Basketball</td>
+      <td>42221.0</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Physical ed</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Young</td>
+      <td>Boozer</td>
+      <td>Coach</td>
+      <td>NaN</td>
+      <td>34700.0</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Political sci.</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Micheal</td>
+      <td>Larsen</td>
+      <td>Teacher</td>
+      <td>English</td>
+      <td>40071.0</td>
+      <td>0.80</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Vocal music</td>
+      <td>English</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="visualizing-the-nan-values">Visualizing the NaN Values</h2>
+<p>Quickly visualizing the NaN values with the package <code>missingno</code> can help us see how dirty the data may be and if the NaN values have any relationships between columns. And as we will see later, it can also be used to visualize the improvement afforded by <code>pyjanitor</code>.</p>
+<p>Here is the current visual state of the data (the right side of the chart gives a vertical line graph of min/max row information):</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">mn.matrix(df);
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_8_0.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="cleaning-column-names">Cleaning Column Names</h2>
+<p>There are a bunch of problems with this data. Firstly, the column names are not lowercase, and they have spaces. This will make it cumbersome to use in a programmatic function. To solve this, we can use the <code>clean_names()</code> method.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">df_clean = df.clean_names()
+df_clean.head(2)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>employee_status</th>
+      <th>subject</th>
+      <th>hire_date</th>
+      <th>%_allocated</th>
+      <th>full_time_</th>
+      <th>do_not_edit!_&gt;</th>
+      <th>certification</th>
+      <th>certification_1</th>
+      <th>certification_2</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>PE</td>
+      <td>39690.0</td>
+      <td>0.75</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>Drafting</td>
+      <td>39690.0</td>
+      <td>0.25</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice now how the column names have been made better.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you squint at the unclean dataset, you'll notice one row and one column of data that are missing. We can also fix this! Building on top of the code block from above, let's now remove those empty columns using the <code>remove_empty()</code> method:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">df_clean = df.clean_names().remove_empty()
+df_clean.head(9).tail(4)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>employee_status</th>
+      <th>subject</th>
+      <th>hire_date</th>
+      <th>%_allocated</th>
+      <th>full_time_</th>
+      <th>certification</th>
+      <th>certification_1</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>5</th>
+      <td>Chien-Shiung</td>
+      <td>Wu</td>
+      <td>Teacher</td>
+      <td>Physics</td>
+      <td>11037.0</td>
+      <td>0.5</td>
+      <td>Yes</td>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Chien-Shiung</td>
+      <td>Wu</td>
+      <td>Teacher</td>
+      <td>Chemistry</td>
+      <td>11037.0</td>
+      <td>0.5</td>
+      <td>Yes</td>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>James</td>
+      <td>Joyce</td>
+      <td>Teacher</td>
+      <td>English</td>
+      <td>32994.0</td>
+      <td>0.5</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>English 6-12</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Hedy</td>
+      <td>Lamarr</td>
+      <td>Teacher</td>
+      <td>Science</td>
+      <td>27919.0</td>
+      <td>0.5</td>
+      <td>No</td>
+      <td>PENDING</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now this is starting to shape up well!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="renaming-individual-columns">Renaming Individual Columns</h2>
+<p>Next, let's rename some of the columns. <code>%_allocated</code> and <code>full_time?</code> contain non-alphanumeric characters, so they make it a bit harder to use. We can rename them using the :py:meth:<code>rename_column()</code> method:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">df_clean = (
+    df.clean_names()
+    .remove_empty()
+    .rename_column(&quot;%_allocated&quot;, &quot;percent_allocated&quot;)
+    .rename_column(&quot;full_time_&quot;, &quot;full_time&quot;)
+)
+
+df_clean.head(5)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>employee_status</th>
+      <th>subject</th>
+      <th>hire_date</th>
+      <th>percent_allocated</th>
+      <th>full_time</th>
+      <th>certification</th>
+      <th>certification_1</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>PE</td>
+      <td>39690.0</td>
+      <td>0.75</td>
+      <td>Yes</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>Drafting</td>
+      <td>39690.0</td>
+      <td>0.25</td>
+      <td>Yes</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alicia</td>
+      <td>Keys</td>
+      <td>Teacher</td>
+      <td>Music</td>
+      <td>37118.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>Instr. music</td>
+      <td>Vocal music</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ada</td>
+      <td>Lovelace</td>
+      <td>Teacher</td>
+      <td>NaN</td>
+      <td>27515.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>PENDING</td>
+      <td>Computers</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Desus</td>
+      <td>Nice</td>
+      <td>Administration</td>
+      <td>Dean</td>
+      <td>41431.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>PENDING</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note how now we have really nice column names! You might be wondering why I'm not modifying the two certifiation columns -- that is the next thing we'll tackle.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="coalescing-columns">Coalescing Columns</h2>
+<p>If we look more closely at the two <code>certification</code> columns, we'll see that they look like this:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">df_clean[[&quot;certification&quot;, &quot;certification_1&quot;]]
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>certification</th>
+      <th>certification_1</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Physical ed</td>
+      <td>Theater</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Physical ed</td>
+      <td>Theater</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Instr. music</td>
+      <td>Vocal music</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PENDING</td>
+      <td>Computers</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PENDING</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>NaN</td>
+      <td>English 6-12</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>PENDING</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Physical ed</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>NaN</td>
+      <td>Political sci.</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Vocal music</td>
+      <td>English</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Rows 8 and 11 have NaN in the left certification column, but have a value in the right certification column. Let's assume for a moment that the left certification column is intended to record the first certification that a teacher had obtained. In this case, the values in the right certification column on rows 8 and 11 should be moved to the first column. Let's do that with Janitor, using the <code>coalesce()</code> method, which does the following:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">df_clean = (
+    df.clean_names()
+    .remove_empty()
+    .rename_column(&quot;%_allocated&quot;, &quot;percent_allocated&quot;)
+    .rename_column(&quot;full_time_&quot;, &quot;full_time&quot;)
+    .coalesce(&quot;certification&quot;, &quot;certification_1&quot;, new_column_name=&quot;certification&quot;)
+)
+
+df_clean
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>employee_status</th>
+      <th>subject</th>
+      <th>hire_date</th>
+      <th>percent_allocated</th>
+      <th>full_time</th>
+      <th>certification</th>
+      <th>certification_1</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>PE</td>
+      <td>39690.0</td>
+      <td>0.75</td>
+      <td>Yes</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>Drafting</td>
+      <td>39690.0</td>
+      <td>0.25</td>
+      <td>Yes</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alicia</td>
+      <td>Keys</td>
+      <td>Teacher</td>
+      <td>Music</td>
+      <td>37118.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>Instr. music</td>
+      <td>Vocal music</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ada</td>
+      <td>Lovelace</td>
+      <td>Teacher</td>
+      <td>NaN</td>
+      <td>27515.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>PENDING</td>
+      <td>Computers</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Desus</td>
+      <td>Nice</td>
+      <td>Administration</td>
+      <td>Dean</td>
+      <td>41431.0</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>PENDING</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Chien-Shiung</td>
+      <td>Wu</td>
+      <td>Teacher</td>
+      <td>Physics</td>
+      <td>11037.0</td>
+      <td>0.50</td>
+      <td>Yes</td>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Chien-Shiung</td>
+      <td>Wu</td>
+      <td>Teacher</td>
+      <td>Chemistry</td>
+      <td>11037.0</td>
+      <td>0.50</td>
+      <td>Yes</td>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>James</td>
+      <td>Joyce</td>
+      <td>Teacher</td>
+      <td>English</td>
+      <td>32994.0</td>
+      <td>0.50</td>
+      <td>No</td>
+      <td>English 6-12</td>
+      <td>English 6-12</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Hedy</td>
+      <td>Lamarr</td>
+      <td>Teacher</td>
+      <td>Science</td>
+      <td>27919.0</td>
+      <td>0.50</td>
+      <td>No</td>
+      <td>PENDING</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Carlos</td>
+      <td>Boozer</td>
+      <td>Coach</td>
+      <td>Basketball</td>
+      <td>42221.0</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>Physical ed</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Young</td>
+      <td>Boozer</td>
+      <td>Coach</td>
+      <td>NaN</td>
+      <td>34700.0</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>Political sci.</td>
+      <td>Political sci.</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Micheal</td>
+      <td>Larsen</td>
+      <td>Teacher</td>
+      <td>English</td>
+      <td>40071.0</td>
+      <td>0.80</td>
+      <td>No</td>
+      <td>Vocal music</td>
+      <td>English</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Awesome stuff! Now we don't have two columns of scattered data, we have one column of densely populated data.`</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="dealing-with-excel-dates">Dealing with Excel Dates</h2>
+<p>Finally, notice how the <code>hire_date</code> column isn't date formatted. It's got this weird Excel serialization.
+To clean up this data, we can use the :py:meth:<code>convert_excel_date</code> method.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">df_clean = (
+    df.clean_names()
+    .remove_empty()
+    .rename_column(&quot;%_allocated&quot;, &quot;percent_allocated&quot;)
+    .rename_column(&quot;full_time_&quot;, &quot;full_time&quot;)
+    .coalesce(&quot;certification&quot;, &quot;certification_1&quot;, target_column_name=&quot;certification&quot;)
+    .convert_excel_date(&quot;hire_date&quot;)
+)
+df_clean
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>employee_status</th>
+      <th>subject</th>
+      <th>hire_date</th>
+      <th>percent_allocated</th>
+      <th>full_time</th>
+      <th>certification</th>
+      <th>certification_1</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>PE</td>
+      <td>2008-08-30</td>
+      <td>0.75</td>
+      <td>Yes</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jason</td>
+      <td>Bourne</td>
+      <td>Teacher</td>
+      <td>Drafting</td>
+      <td>2008-08-30</td>
+      <td>0.25</td>
+      <td>Yes</td>
+      <td>Physical ed</td>
+      <td>Theater</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alicia</td>
+      <td>Keys</td>
+      <td>Teacher</td>
+      <td>Music</td>
+      <td>2001-08-15</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>Instr. music</td>
+      <td>Vocal music</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ada</td>
+      <td>Lovelace</td>
+      <td>Teacher</td>
+      <td>NaN</td>
+      <td>1975-05-01</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>PENDING</td>
+      <td>Computers</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Desus</td>
+      <td>Nice</td>
+      <td>Administration</td>
+      <td>Dean</td>
+      <td>2013-06-06</td>
+      <td>1.00</td>
+      <td>Yes</td>
+      <td>PENDING</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Chien-Shiung</td>
+      <td>Wu</td>
+      <td>Teacher</td>
+      <td>Physics</td>
+      <td>1930-03-20</td>
+      <td>0.50</td>
+      <td>Yes</td>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Chien-Shiung</td>
+      <td>Wu</td>
+      <td>Teacher</td>
+      <td>Chemistry</td>
+      <td>1930-03-20</td>
+      <td>0.50</td>
+      <td>Yes</td>
+      <td>Science 6-12</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>James</td>
+      <td>Joyce</td>
+      <td>Teacher</td>
+      <td>English</td>
+      <td>1990-05-01</td>
+      <td>0.50</td>
+      <td>No</td>
+      <td>English 6-12</td>
+      <td>English 6-12</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Hedy</td>
+      <td>Lamarr</td>
+      <td>Teacher</td>
+      <td>Science</td>
+      <td>1976-06-08</td>
+      <td>0.50</td>
+      <td>No</td>
+      <td>PENDING</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Carlos</td>
+      <td>Boozer</td>
+      <td>Coach</td>
+      <td>Basketball</td>
+      <td>2015-08-05</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>Physical ed</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Young</td>
+      <td>Boozer</td>
+      <td>Coach</td>
+      <td>NaN</td>
+      <td>1995-01-01</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>Political sci.</td>
+      <td>Political sci.</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Micheal</td>
+      <td>Larsen</td>
+      <td>Teacher</td>
+      <td>English</td>
+      <td>2009-09-15</td>
+      <td>0.80</td>
+      <td>No</td>
+      <td>Vocal music</td>
+      <td>English</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="comparing-the-dataframe-before-and-after-pyjanitor">Comparing the DataFrame Before and After <code>pyjanitor</code></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 15))
+
+mn.matrix(df, ax=ax1, sparkline=False)
+mn.matrix(df_clean, ax=ax2, sparkline=False)
+
+plt.tight_layout();
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_26_0.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have a cleaned dataframe!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html"></div>
+</div>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../conditional_join/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Conditional join" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Conditional join
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../expand_grid/" class="md-footer__link md-footer__link--next" aria-label="Next: Expand grid" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Expand grid
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+      
+        <script src="../js/config.js"></script>
+      
+    
+  </body>
+</html>
