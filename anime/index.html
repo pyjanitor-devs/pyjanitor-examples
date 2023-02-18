@@ -1,0 +1,1764 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pyjanitor-devs.github.io/pyjanitor/anime/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>Anime - pyjanitor documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/nb_mods.css">
+    
+      <link rel="stylesheet" href="../css/apidocs.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/nord.min.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#processing-anime-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="pyjanitor documentation" class="md-header__button md-logo" aria-label="pyjanitor documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M448 336V48c0-26.51-21.5-48-48-48H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1 0-11.72-6.607-21.52-16-27.1v-81.36c9.8-9.64 16-22.24 16-36.44zM143.1 128h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zm0 64h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zM384 448H96c-17.67 0-32-14.33-32-32s14.33-32 32-32h288v64z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            pyjanitor documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Anime
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pyjanitor-devs/pyjanitor-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pyjanitor-devs/pyjanitor-examples
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="pyjanitor documentation" class="md-nav__button md-logo" aria-label="pyjanitor documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M448 336V48c0-26.51-21.5-48-48-48H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1 0-11.72-6.607-21.52-16-27.1v-81.36c9.8-9.64 16-22.24 16-36.44zM143.1 128h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zm0 64h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zM384 448H96c-17.67 0-32-14.33-32-32s14.33-32 32-32h288v64z"/></svg>
+
+    </a>
+    pyjanitor documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pyjanitor-devs/pyjanitor-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pyjanitor-devs/pyjanitor-examples
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        pyjanitor-examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Row_to_Names/" class="md-nav__link">
+        Row to Names
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Anime
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Anime
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-shot" class="md-nav__link">
+    One-Shot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-step" class="md-nav__link">
+    Multi-Step
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0-load-data" class="md-nav__link">
+    Step 0: Load data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-clean-producers-column" class="md-nav__link">
+    Step 1: Clean producers column
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bad_values/" class="md-nav__link">
+        Bad values
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bird_call/" class="md-nav__link">
+        Bird call
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../board_games/" class="md-nav__link">
+        Board games
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_when/" class="md-nav__link">
+        Case when
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complete/" class="md-nav__link">
+        Complete
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conditional_join/" class="md-nav__link">
+        Conditional join
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dirty_data/" class="md-nav__link">
+        Dirty data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expand_grid/" class="md-nav__link">
+        Expand grid
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../french_trains/" class="md-nav__link">
+        French trains
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groupby_agg/" class="md-nav__link">
+        Groupby agg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../normalize/" class="md-nav__link">
+        Normalize
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pivot_long_wide/" class="md-nav__link">
+        Pivot long wide
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyjanitor_intro/" class="md-nav__link">
+        Pyjanitor intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sort_naturally/" class="md-nav__link">
+        Sort naturally
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teacher_pupil/" class="md-nav__link">
+        Teacher pupil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transform_column/" class="md-nav__link">
+        Transform column
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-shot" class="md-nav__link">
+    One-Shot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-step" class="md-nav__link">
+    Multi-Step
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0-load-data" class="md-nav__link">
+    Step 0: Load data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-clean-producers-column" class="md-nav__link">
+    Step 1: Clean producers column
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/pyjanitor-devs/pyjanitor-examples/edit/master/docs/anime.ipynb" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var jupyterWidgetsScript = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://mybinder.org/v2/gh/pyjanitor-devs/pyjanitor-examples/dev?urlpath=%2Ftree%2Fdocs%2Fanime.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="processing-anime-data">Processing Anime Data</h1>
+<h2 id="background">Background</h2>
+<p>We will use pyjanitor to showcase how to conveniently chain methods together to perform data cleaning in one shot. We 
+We first define and register a series of dataframe methods with pandas_flavor. Then we chain the dataframe methods together with pyjanitor methods to complete the data cleaning process. The below example shows a one-shot script followed by a step-by-step detail of each part of the method chain.</p>
+<p>We have adapted a <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-04-23/readme.md">TidyTuesday analysis</a> that was originally performed in R. The original text from TidyTuesday will be shown in blockquotes.</p>
+<p>Note: TidyTuesday is based on the principles discussed and made popular by Hadley Wickham in his paper <a href="https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf">Tidy Data</a>.</p>
+<p><em>The original text from TidyTuesday will be shown in blockquotes.</em>
+Here is a description of the Anime data set that we will use.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>This week's data comes from <a href="https://github.com/tamdrashtri">Tam Nguyen</a> and <a href="https://www.kaggle.com/aludosan/myanimelist-anime-dataset-as-20190204">MyAnimeList.net via Kaggle</a>. <a href="https://en.wikipedia.org/wiki/MyAnimeList">According to Wikipedia</a> - "MyAnimeList, often abbreviated as MAL, is an anime and manga social networking and social cataloging application website. The site provides its users with a list-like system to organize and score anime and manga. It facilitates finding users who share similar tastes and provides a large database on anime and manga. The site claims to have 4.4 million anime and 775,000 manga entries. In 2015, the site received 120 million visitors a month."</p>
+<p>Anime without rankings or popularity scores were excluded. Producers, genre, and studio were converted from lists to tidy observations, so there will be repetitions of shows with multiple producers, genres, etc. The raw data is also uploaded.</p>
+<p>Lots of interesting ways to explore the data this week!</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Import libraries and load data</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python"># Import pyjanitor and pandas
+# Supress user warnings when we try overwriting our custom pandas flavor functions
+import warnings
+
+import janitor
+import pandas as pd
+import pandas_flavor as pf
+
+warnings.filterwarnings(&quot;ignore&quot;)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="one-shot">One-Shot</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">filename = &quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-23/raw_anime.csv&quot;
+df = pd.read_csv(filename)
+
+
+@pf.register_dataframe_method
+def str_remove(df, column_name: str, pat: str, *args, **kwargs):
+    &quot;&quot;&quot;Wrapper around df.str.replace&quot;&quot;&quot;
+
+    df[column_name] = df[column_name].str.replace(pat, &quot;&quot;, *args, **kwargs)
+    return df
+
+
+@pf.register_dataframe_method
+def str_trim(df, column_name: str, *args, **kwargs):
+    &quot;&quot;&quot;Wrapper around df.str.strip&quot;&quot;&quot;
+
+    df[column_name] = df[column_name].str.strip(*args, **kwargs)
+    return df
+
+
+@pf.register_dataframe_method
+def explode(df: pd.DataFrame, column_name: str, sep: str):
+    &quot;&quot;&quot;
+    For rows with a list of values, this function will create new
+    rows for each value in the list
+    &quot;&quot;&quot;
+
+    df[&quot;id&quot;] = df.index
+    wdf = (
+        pd.DataFrame(df[column_name].str.split(sep).fillna(&quot;&quot;).tolist())
+        .stack()
+        .reset_index()
+    )
+    # exploded_column = column_name
+    wdf.columns = [&quot;id&quot;, &quot;depth&quot;, column_name]  # plural form to singular form
+    # wdf[column_name] = wdf[column_name].apply(lambda x: x.strip())  # trim
+    wdf.drop(&quot;depth&quot;, axis=1, inplace=True)
+
+    return pd.merge(df, wdf, on=&quot;id&quot;, suffixes=(&quot;_drop&quot;, &quot;&quot;)).drop(
+        columns=[&quot;id&quot;, column_name + &quot;_drop&quot;]
+    )
+
+
+@pf.register_dataframe_method
+def str_word(
+    df,
+    column_name: str,
+    start: int = None,
+    stop: int = None,
+    pat: str = &quot; &quot;,
+    *args,
+    **kwargs,
+):
+    &quot;&quot;&quot;
+    Wrapper around `df.str.split` with additional `start` and `end` arguments
+    to select a slice of the list of words.
+    &quot;&quot;&quot;
+
+    df[column_name] = df[column_name].str.split(pat).str[start:stop]
+    return df
+
+
+@pf.register_dataframe_method
+def str_join(df, column_name: str, sep: str, *args, **kwargs):
+    &quot;&quot;&quot;
+    Wrapper around `df.str.join`
+    Joins items in a list.
+    &quot;&quot;&quot;
+
+    df[column_name] = df[column_name].str.join(sep)
+    return df
+
+
+@pf.register_dataframe_method
+def str_slice(
+    df, column_name: str, start: int = None, stop: int = None, *args, **kwargs
+):
+    &quot;&quot;&quot;
+    Wrapper around `df.str.slice
+    &quot;&quot;&quot;
+
+    df[column_name] = df[column_name].str[start:stop]
+    return df
+
+
+clean_df = (
+    df.str_remove(column_name=&quot;producers&quot;, pat=&quot;\[|\]&quot;)
+    .explode(column_name=&quot;producers&quot;, sep=&quot;,&quot;)
+    .str_remove(column_name=&quot;producers&quot;, pat=&quot;'&quot;)
+    .str_trim(&quot;producers&quot;)
+    .str_remove(column_name=&quot;genre&quot;, pat=&quot;\[|\]&quot;)
+    .explode(column_name=&quot;genre&quot;, sep=&quot;,&quot;)
+    .str_remove(column_name=&quot;genre&quot;, pat=&quot;'&quot;)
+    .str_trim(column_name=&quot;genre&quot;)
+    .str_remove(column_name=&quot;studio&quot;, pat=&quot;\[|\]&quot;)
+    .explode(column_name=&quot;studio&quot;, sep=&quot;,&quot;)
+    .str_remove(column_name=&quot;studio&quot;, pat=&quot;'&quot;)
+    .str_trim(column_name=&quot;studio&quot;)
+    .str_remove(column_name=&quot;aired&quot;, pat=&quot;\{|\}|'from':\s*|'to':\s*&quot;)
+    .str_word(column_name=&quot;aired&quot;, start=0, stop=2, pat=&quot;,&quot;)
+    .str_join(column_name=&quot;aired&quot;, sep=&quot;,&quot;)
+    .deconcatenate_column(
+        column_name=&quot;aired&quot;, new_column_names=[&quot;start_date&quot;, &quot;end_date&quot;], sep=&quot;,&quot;
+    )
+    .remove_columns(column_names=[&quot;aired&quot;])
+    .str_remove(column_name=&quot;start_date&quot;, pat=&quot;'&quot;)
+    .str_slice(column_name=&quot;start_date&quot;, start=0, stop=10)
+    .str_remove(column_name=&quot;end_date&quot;, pat=&quot;'&quot;)
+    .str_slice(column_name=&quot;end_date&quot;, start=0, stop=11)
+    .to_datetime(&quot;start_date&quot;, format=&quot;%Y-%m-%d&quot;, errors=&quot;coerce&quot;)
+    .to_datetime(&quot;end_date&quot;, format=&quot;%Y-%m-%d&quot;, errors=&quot;coerce&quot;)
+    .fill_empty(columns=[&quot;rank&quot;, &quot;popularity&quot;], value=0)
+    .filter_on(&quot;rank != 0 &amp; popularity != 0&quot;)
+)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">clean_df.head()
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>animeID</th>
+      <th>name</th>
+      <th>title_english</th>
+      <th>title_japanese</th>
+      <th>title_synonyms</th>
+      <th>type</th>
+      <th>source</th>
+      <th>episodes</th>
+      <th>status</th>
+      <th>airing</th>
+      <th>...</th>
+      <th>synopsis</th>
+      <th>background</th>
+      <th>premiered</th>
+      <th>broadcast</th>
+      <th>related</th>
+      <th>producers</th>
+      <th>genre</th>
+      <th>studio</th>
+      <th>start_date</th>
+      <th>end_date</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Cowboy Bebop</td>
+      <td>Cowboy Bebop</td>
+      <td>カウボーイビバップ</td>
+      <td>[]</td>
+      <td>TV</td>
+      <td>Original</td>
+      <td>26.0</td>
+      <td>Finished Airing</td>
+      <td>False</td>
+      <td>...</td>
+      <td>In the year 2071, humanity has colonized sever...</td>
+      <td>When Cowboy Bebop first aired in spring of 199...</td>
+      <td>Spring 1998</td>
+      <td>Saturdays at 01:00 (JST)</td>
+      <td>{'Adaptation': [{'mal_id': 173, 'type': 'manga...</td>
+      <td>Bandai Visual</td>
+      <td>Action</td>
+      <td>Sunrise</td>
+      <td>1998-04-03</td>
+      <td>1999-04-24</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Cowboy Bebop</td>
+      <td>Cowboy Bebop</td>
+      <td>カウボーイビバップ</td>
+      <td>[]</td>
+      <td>TV</td>
+      <td>Original</td>
+      <td>26.0</td>
+      <td>Finished Airing</td>
+      <td>False</td>
+      <td>...</td>
+      <td>In the year 2071, humanity has colonized sever...</td>
+      <td>When Cowboy Bebop first aired in spring of 199...</td>
+      <td>Spring 1998</td>
+      <td>Saturdays at 01:00 (JST)</td>
+      <td>{'Adaptation': [{'mal_id': 173, 'type': 'manga...</td>
+      <td>Bandai Visual</td>
+      <td>Adventure</td>
+      <td>Sunrise</td>
+      <td>1998-04-03</td>
+      <td>1999-04-24</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Cowboy Bebop</td>
+      <td>Cowboy Bebop</td>
+      <td>カウボーイビバップ</td>
+      <td>[]</td>
+      <td>TV</td>
+      <td>Original</td>
+      <td>26.0</td>
+      <td>Finished Airing</td>
+      <td>False</td>
+      <td>...</td>
+      <td>In the year 2071, humanity has colonized sever...</td>
+      <td>When Cowboy Bebop first aired in spring of 199...</td>
+      <td>Spring 1998</td>
+      <td>Saturdays at 01:00 (JST)</td>
+      <td>{'Adaptation': [{'mal_id': 173, 'type': 'manga...</td>
+      <td>Bandai Visual</td>
+      <td>Comedy</td>
+      <td>Sunrise</td>
+      <td>1998-04-03</td>
+      <td>1999-04-24</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Cowboy Bebop</td>
+      <td>Cowboy Bebop</td>
+      <td>カウボーイビバップ</td>
+      <td>[]</td>
+      <td>TV</td>
+      <td>Original</td>
+      <td>26.0</td>
+      <td>Finished Airing</td>
+      <td>False</td>
+      <td>...</td>
+      <td>In the year 2071, humanity has colonized sever...</td>
+      <td>When Cowboy Bebop first aired in spring of 199...</td>
+      <td>Spring 1998</td>
+      <td>Saturdays at 01:00 (JST)</td>
+      <td>{'Adaptation': [{'mal_id': 173, 'type': 'manga...</td>
+      <td>Bandai Visual</td>
+      <td>Drama</td>
+      <td>Sunrise</td>
+      <td>1998-04-03</td>
+      <td>1999-04-24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Cowboy Bebop</td>
+      <td>Cowboy Bebop</td>
+      <td>カウボーイビバップ</td>
+      <td>[]</td>
+      <td>TV</td>
+      <td>Original</td>
+      <td>26.0</td>
+      <td>Finished Airing</td>
+      <td>False</td>
+      <td>...</td>
+      <td>In the year 2071, humanity has colonized sever...</td>
+      <td>When Cowboy Bebop first aired in spring of 199...</td>
+      <td>Spring 1998</td>
+      <td>Saturdays at 01:00 (JST)</td>
+      <td>{'Adaptation': [{'mal_id': 173, 'type': 'manga...</td>
+      <td>Bandai Visual</td>
+      <td>Sci-Fi</td>
+      <td>Sunrise</td>
+      <td>1998-04-03</td>
+      <td>1999-04-24</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 28 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="multi-step">Multi-Step</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Data Dictionary</p>
+<p>Heads up the dataset is about 97 mb - if you want to free up some space, drop the synopsis and background, they are long strings, or broadcast, premiered, related as they are redundant or less useful.
+</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">variable</th>
+<th align="left">class</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">animeID</td>
+<td align="left">double</td>
+<td align="left">Anime ID (as in https://myanimelist.net/anime/animeID)</td>
+</tr>
+<tr>
+<td align="left">name</td>
+<td align="left">character</td>
+<td align="left">anime title - extracted from the site.</td>
+</tr>
+<tr>
+<td align="left">title_english</td>
+<td align="left">character</td>
+<td align="left">title in English (sometimes is different, sometimes is missing)</td>
+</tr>
+<tr>
+<td align="left">title_japanese</td>
+<td align="left">character</td>
+<td align="left">title in Japanese (if Anime is Chinese or Korean, the title, if available, in the respective language)</td>
+</tr>
+<tr>
+<td align="left">title_synonyms</td>
+<td align="left">character</td>
+<td align="left">other variants of the title</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left">character</td>
+<td align="left">anime type (e.g. TV, Movie, OVA)</td>
+</tr>
+<tr>
+<td align="left">source</td>
+<td align="left">character</td>
+<td align="left">source of anime (i.e original, manga, game, music, visual novel etc.)</td>
+</tr>
+<tr>
+<td align="left">producers</td>
+<td align="left">character</td>
+<td align="left">producers</td>
+</tr>
+<tr>
+<td align="left">genre</td>
+<td align="left">character</td>
+<td align="left">genre</td>
+</tr>
+<tr>
+<td align="left">studio</td>
+<td align="left">character</td>
+<td align="left">studio</td>
+</tr>
+<tr>
+<td align="left">episodes</td>
+<td align="left">double</td>
+<td align="left">number of episodes</td>
+</tr>
+<tr>
+<td align="left">status</td>
+<td align="left">character</td>
+<td align="left">Aired or not aired</td>
+</tr>
+<tr>
+<td align="left">airing</td>
+<td align="left">logical</td>
+<td align="left">True/False is still airing</td>
+</tr>
+<tr>
+<td align="left">start_date</td>
+<td align="left">double</td>
+<td align="left">Start date (ymd)</td>
+</tr>
+<tr>
+<td align="left">end_date</td>
+<td align="left">double</td>
+<td align="left">End date (ymd)</td>
+</tr>
+<tr>
+<td align="left">duration</td>
+<td align="left">character</td>
+<td align="left">Per episode duration or entire duration, text string</td>
+</tr>
+<tr>
+<td align="left">rating</td>
+<td align="left">character</td>
+<td align="left">Age rating</td>
+</tr>
+<tr>
+<td align="left">score</td>
+<td align="left">double</td>
+<td align="left">Score (higher = better)</td>
+</tr>
+<tr>
+<td align="left">scored_by</td>
+<td align="left">double</td>
+<td align="left">Number of users that scored</td>
+</tr>
+<tr>
+<td align="left">rank</td>
+<td align="left">double</td>
+<td align="left">Rank - weight according to MyAnimeList formula</td>
+</tr>
+<tr>
+<td align="left">popularity</td>
+<td align="left">double</td>
+<td align="left">based on how many members/users have the respective anime in their list</td>
+</tr>
+<tr>
+<td align="left">members</td>
+<td align="left">double</td>
+<td align="left">number members that added this anime in their list</td>
+</tr>
+<tr>
+<td align="left">favorites</td>
+<td align="left">double</td>
+<td align="left">number members that favorites these in their list</td>
+</tr>
+<tr>
+<td align="left">synopsis</td>
+<td align="left">character</td>
+<td align="left">long string with anime synopsis</td>
+</tr>
+<tr>
+<td align="left">background</td>
+<td align="left">character</td>
+<td align="left">long string with production background and other things</td>
+</tr>
+<tr>
+<td align="left">premiered</td>
+<td align="left">character</td>
+<td align="left">anime premiered on season/year</td>
+</tr>
+<tr>
+<td align="left">broadcast</td>
+<td align="left">character</td>
+<td align="left">when is (regularly) broadcasted</td>
+</tr>
+<tr>
+<td align="left">related</td>
+<td align="left">character</td>
+<td align="left">dictionary: related animes, series, games etc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="step-0-load-data">Step 0: Load data</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">filename = &quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-23/raw_anime.csv&quot;
+df = pd.read_csv(filename)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">df.head(3).T
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>animeID</th>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td>Cowboy Bebop</td>
+      <td>Cowboy Bebop: Tengoku no Tobira</td>
+      <td>Trigun</td>
+    </tr>
+    <tr>
+      <th>title_english</th>
+      <td>Cowboy Bebop</td>
+      <td>Cowboy Bebop: The Movie</td>
+      <td>Trigun</td>
+    </tr>
+    <tr>
+      <th>title_japanese</th>
+      <td>カウボーイビバップ</td>
+      <td>カウボーイビバップ 天国の扉</td>
+      <td>トライガン</td>
+    </tr>
+    <tr>
+      <th>title_synonyms</th>
+      <td>[]</td>
+      <td>["Cowboy Bebop: Knockin' on Heaven's Door"]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td>TV</td>
+      <td>Movie</td>
+      <td>TV</td>
+    </tr>
+    <tr>
+      <th>source</th>
+      <td>Original</td>
+      <td>Original</td>
+      <td>Manga</td>
+    </tr>
+    <tr>
+      <th>producers</th>
+      <td>['Bandai Visual']</td>
+      <td>['Sunrise', 'Bandai Visual']</td>
+      <td>['Victor Entertainment']</td>
+    </tr>
+    <tr>
+      <th>genre</th>
+      <td>['Action', 'Adventure', 'Comedy', 'Drama', 'Sc...</td>
+      <td>['Action', 'Drama', 'Mystery', 'Sci-Fi', 'Space']</td>
+      <td>['Action', 'Sci-Fi', 'Adventure', 'Comedy', 'D...</td>
+    </tr>
+    <tr>
+      <th>studio</th>
+      <td>['Sunrise']</td>
+      <td>['Bones']</td>
+      <td>['Madhouse']</td>
+    </tr>
+    <tr>
+      <th>episodes</th>
+      <td>26.0</td>
+      <td>1.0</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>status</th>
+      <td>Finished Airing</td>
+      <td>Finished Airing</td>
+      <td>Finished Airing</td>
+    </tr>
+    <tr>
+      <th>airing</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>aired</th>
+      <td>{'from': '1998-04-03T00:00:00+00:00', 'to': '1...</td>
+      <td>{'from': '2001-09-01T00:00:00+00:00', 'to': No...</td>
+      <td>{'from': '1998-04-01T00:00:00+00:00', 'to': '1...</td>
+    </tr>
+    <tr>
+      <th>duration</th>
+      <td>24 min per ep</td>
+      <td>1 hr 55 min</td>
+      <td>24 min per ep</td>
+    </tr>
+    <tr>
+      <th>rating</th>
+      <td>R - 17+ (violence &amp; profanity)</td>
+      <td>R - 17+ (violence &amp; profanity)</td>
+      <td>PG-13 - Teens 13 or older</td>
+    </tr>
+    <tr>
+      <th>score</th>
+      <td>8.81</td>
+      <td>8.41</td>
+      <td>8.3</td>
+    </tr>
+    <tr>
+      <th>scored_by</th>
+      <td>405664.0</td>
+      <td>120243.0</td>
+      <td>212537.0</td>
+    </tr>
+    <tr>
+      <th>rank</th>
+      <td>26.0</td>
+      <td>164.0</td>
+      <td>255.0</td>
+    </tr>
+    <tr>
+      <th>popularity</th>
+      <td>39.0</td>
+      <td>449.0</td>
+      <td>146.0</td>
+    </tr>
+    <tr>
+      <th>members</th>
+      <td>795733.0</td>
+      <td>197791.0</td>
+      <td>408548.0</td>
+    </tr>
+    <tr>
+      <th>favorites</th>
+      <td>43460.0</td>
+      <td>776.0</td>
+      <td>10432.0</td>
+    </tr>
+    <tr>
+      <th>synopsis</th>
+      <td>In the year 2071, humanity has colonized sever...</td>
+      <td>Another day, another bounty—such is the life o...</td>
+      <td>Vash the Stampede is the man with a $$60,000,0...</td>
+    </tr>
+    <tr>
+      <th>background</th>
+      <td>When Cowboy Bebop first aired in spring of 199...</td>
+      <td>NaN</td>
+      <td>The Japanese release by Victor Entertainment h...</td>
+    </tr>
+    <tr>
+      <th>premiered</th>
+      <td>Spring 1998</td>
+      <td>NaN</td>
+      <td>Spring 1998</td>
+    </tr>
+    <tr>
+      <th>broadcast</th>
+      <td>Saturdays at 01:00 (JST)</td>
+      <td>NaN</td>
+      <td>Thursdays at 01:15 (JST)</td>
+    </tr>
+    <tr>
+      <th>related</th>
+      <td>{'Adaptation': [{'mal_id': 173, 'type': 'manga...</td>
+      <td>{'Parent story': [{'mal_id': 1, 'type': 'anime...</td>
+      <td>{'Adaptation': [{'mal_id': 703, 'type': 'manga...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="step-1-clean-producers-column">Step 1: Clean <code>producers</code> column</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first step tries to clean up the <code>producers</code> column by removing some brackets ('[]') and trim off some empty spaces</p>
+<blockquote>
+<p><code>clean_df &lt;- raw_df %&gt;% 
+ # Producers
+ mutate(producers = str_remove(producers, "\\["),
+         producers = str_remove(producers, "\\]"))</code></p>
+</blockquote>
+<p>What is mutate? This <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_r.html">link</a> compares R's <code>mutate</code> to be similar to pandas' <code>df.assign</code>.
+However, <code>df.assign</code> returns a new DataFrame whereas <code>mutate</code> adds a new variable while preserving the previous ones.
+Therefore, for this example, I will compare <code>mutate</code> to be similar to <code>df['col'] = X</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see, this is looks like a list of items but in string form</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python"># Let's see what we trying to remove
+df.loc[df[&quot;producers&quot;].str.contains(&quot;\[&quot;, na=False), &quot;producers&quot;].head()
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0               [&#39;Bandai Visual&#39;]
+1    [&#39;Sunrise&#39;, &#39;Bandai Visual&#39;]
+2        [&#39;Victor Entertainment&#39;]
+3               [&#39;Bandai Visual&#39;]
+4          [&#39;TV Tokyo&#39;, &#39;Dentsu&#39;]
+Name: producers, dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's use pandas flavor to create a custom method for just removing some strings so we don't have to use str.replace so many times.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">@pf.register_dataframe_method
+def str_remove(df, column_name: str, pat: str, *args, **kwargs):
+    &quot;&quot;&quot;
+    Wrapper around df.str.replace
+    The function will loop through regex patterns and remove them from the desired column.
+
+    :param df: A pandas DataFrame.
+    :param column_name: A `str` indicating which column the string removal action is to be made.
+    :param pat: A regex pattern to match and remove.
+    &quot;&quot;&quot;
+
+    if not isinstance(pat, str):
+        raise TypeError(
+            f&quot;Pattern should be a valid regex pattern. Received pattern: {pat} with dtype: {type(pat)}&quot;
+        )
+    df[column_name] = df[column_name].str.replace(pat, &quot;&quot;, *args, **kwargs)
+    return df
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">clean_df = df.str_remove(column_name=&quot;producers&quot;, pat=&quot;\[|\]&quot;)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With brackets removed.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">clean_df[&quot;producers&quot;].head()
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0               &#39;Bandai Visual&#39;
+1    &#39;Sunrise&#39;, &#39;Bandai Visual&#39;
+2        &#39;Victor Entertainment&#39;
+3               &#39;Bandai Visual&#39;
+4          &#39;TV Tokyo&#39;, &#39;Dentsu&#39;
+Name: producers, dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Brackets are removed. Now the next part</p>
+<blockquote>
+<p><code>separate_rows(producers, sep = ",") %&gt;%</code></p>
+</blockquote>
+<p>It seems like separate rows will go through each value of the column, and if the value is a list, will create a new row for each value in the list with the remaining column values being the same. This is commonly known as an <code>explode</code> method but it is not yet implemented in pandas. We will need a function for this (code adopted from <a href="https://qiita.com/rikima/items/c10e27d8b7495af4c159">here</a>).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">@pf.register_dataframe_method
+def explode(df: pd.DataFrame, column_name: str, sep: str):
+    &quot;&quot;&quot;
+    For rows with a list of values, this function will create new rows for each value in the list
+
+    :param df: A pandas DataFrame.
+    :param column_name: A `str` indicating which column the string removal action is to be made.
+    :param sep: The delimiter. Example delimiters include `|`, `, `, `,` etc.
+    &quot;&quot;&quot;
+
+    df[&quot;id&quot;] = df.index
+    wdf = (
+        pd.DataFrame(df[column_name].str.split(sep).fillna(&quot;&quot;).tolist())
+        .stack()
+        .reset_index()
+    )
+    # exploded_column = column_name
+    wdf.columns = [&quot;id&quot;, &quot;depth&quot;, column_name]  # plural form to singular form
+    # wdf[column_name] = wdf[column_name].apply(lambda x: x.strip())  # trim
+    wdf.drop(&quot;depth&quot;, axis=1, inplace=True)
+
+    return pd.merge(df, wdf, on=&quot;id&quot;, suffixes=(&quot;_drop&quot;, &quot;&quot;)).drop(
+        columns=[&quot;id&quot;, column_name + &quot;_drop&quot;]
+    )
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">clean_df = clean_df.explode(column_name=&quot;producers&quot;, sep=&quot;,&quot;)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now every producer is its own row.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">clean_df[&quot;producers&quot;].head()
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0           &#39;Bandai Visual&#39;
+1                 &#39;Sunrise&#39;
+2           &#39;Bandai Visual&#39;
+3    &#39;Victor Entertainment&#39;
+4           &#39;Bandai Visual&#39;
+Name: producers, dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Row_to_Names/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Row to Names" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Row to Names
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../bad_values/" class="md-footer__link md-footer__link--next" aria-label="Next: Bad values" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Bad values
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+      
+        <script src="../js/config.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2562 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pyjanitor-devs.github.io/pyjanitor/normalize/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>Normalize - pyjanitor documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/nb_mods.css">
+    
+      <link rel="stylesheet" href="../css/apidocs.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/nord.min.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#normalization-and-standardization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="pyjanitor documentation" class="md-header__button md-logo" aria-label="pyjanitor documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M448 336V48c0-26.51-21.5-48-48-48H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1 0-11.72-6.607-21.52-16-27.1v-81.36c9.8-9.64 16-22.24 16-36.44zM143.1 128h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zm0 64h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zM384 448H96c-17.67 0-32-14.33-32-32s14.33-32 32-32h288v64z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            pyjanitor documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Normalize
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pyjanitor-devs/pyjanitor-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pyjanitor-devs/pyjanitor-examples
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="pyjanitor documentation" class="md-nav__button md-logo" aria-label="pyjanitor documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M448 336V48c0-26.51-21.5-48-48-48H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1 0-11.72-6.607-21.52-16-27.1v-81.36c9.8-9.64 16-22.24 16-36.44zM143.1 128h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zm0 64h192c9.7 0 16.9 7.2 16.9 16s-7.2 16-16 16H143.1c-7.9 0-15.1-7.2-15.1-16s7.2-16 15.1-16zM384 448H96c-17.67 0-32-14.33-32-32s14.33-32 32-32h288v64z"/></svg>
+
+    </a>
+    pyjanitor documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pyjanitor-devs/pyjanitor-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pyjanitor-devs/pyjanitor-examples
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        pyjanitor-examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Row_to_Names/" class="md-nav__link">
+        Row to Names
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anime/" class="md-nav__link">
+        Anime
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bad_values/" class="md-nav__link">
+        Bad values
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bird_call/" class="md-nav__link">
+        Bird call
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../board_games/" class="md-nav__link">
+        Board games
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_when/" class="md-nav__link">
+        Case when
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complete/" class="md-nav__link">
+        Complete
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conditional_join/" class="md-nav__link">
+        Conditional join
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dirty_data/" class="md-nav__link">
+        Dirty data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expand_grid/" class="md-nav__link">
+        Expand grid
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../french_trains/" class="md-nav__link">
+        French trains
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groupby_agg/" class="md-nav__link">
+        Groupby agg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Normalize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Normalize
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#load-data" class="md-nav__link">
+    Load data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examine-raw-data" class="md-nav__link">
+    Examine raw data
+  </a>
+  
+    <nav class="md-nav" aria-label="Examine raw data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualize" class="md-nav__link">
+    Visualize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpg-by-model" class="md-nav__link">
+    mpg by model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displacement-by-model" class="md-nav__link">
+    displacement by model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horsepower-by-model" class="md-nav__link">
+    horsepower by model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min-max-normalization" class="md-nav__link">
+    min-max normalization
+  </a>
+  
+    <nav class="md-nav" aria-label="min-max normalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpg-min-max-normalized" class="md-nav__link">
+    mpg (min-max normalized)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displacement-min-max-normalized" class="md-nav__link">
+    displacement (min-max normalized)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horsepower-min-max-normalized" class="md-nav__link">
+    horsepower (min-max normalized)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standardization-z-score" class="md-nav__link">
+    Standardization (z-score)
+  </a>
+  
+    <nav class="md-nav" aria-label="Standardization (z-score)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standardized-mpg" class="md-nav__link">
+    Standardized mpg
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standardized-displacement" class="md-nav__link">
+    Standardized displacement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standardized-horsepower" class="md-nav__link">
+    Standardized horsepower
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pivot_long_wide/" class="md-nav__link">
+        Pivot long wide
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyjanitor_intro/" class="md-nav__link">
+        Pyjanitor intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sort_naturally/" class="md-nav__link">
+        Sort naturally
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teacher_pupil/" class="md-nav__link">
+        Teacher pupil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transform_column/" class="md-nav__link">
+        Transform column
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#load-data" class="md-nav__link">
+    Load data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examine-raw-data" class="md-nav__link">
+    Examine raw data
+  </a>
+  
+    <nav class="md-nav" aria-label="Examine raw data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualize" class="md-nav__link">
+    Visualize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpg-by-model" class="md-nav__link">
+    mpg by model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displacement-by-model" class="md-nav__link">
+    displacement by model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horsepower-by-model" class="md-nav__link">
+    horsepower by model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min-max-normalization" class="md-nav__link">
+    min-max normalization
+  </a>
+  
+    <nav class="md-nav" aria-label="min-max normalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpg-min-max-normalized" class="md-nav__link">
+    mpg (min-max normalized)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displacement-min-max-normalized" class="md-nav__link">
+    displacement (min-max normalized)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horsepower-min-max-normalized" class="md-nav__link">
+    horsepower (min-max normalized)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standardization-z-score" class="md-nav__link">
+    Standardization (z-score)
+  </a>
+  
+    <nav class="md-nav" aria-label="Standardization (z-score)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standardized-mpg" class="md-nav__link">
+    Standardized mpg
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standardized-displacement" class="md-nav__link">
+    Standardized displacement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standardized-horsepower" class="md-nav__link">
+    Standardized horsepower
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/pyjanitor-devs/pyjanitor-examples/edit/master/docs/normalize.ipynb" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var jupyterWidgetsScript = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://mybinder.org/v2/gh/pyjanitor-devs/pyjanitor-examples/dev?urlpath=%2Ftree%2Fdocs%2Fnormalize.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="normalization-and-standardization">Normalization and Standardization</h1>
+<p><a href="https://en.wikipedia.org/wiki/Normalization_(statistics)">Normalization</a> makes data more meaningful by converting absolute values into comparisons with related values.  <a href="https://github.com/jcvall">Chris Vallier</a> has produced this demonstration of normalization using PyJanitor.</p>
+<p>pyjanitor functions demonstrated here:</p>
+<ul>
+<li>
+<p><a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.min_max_scale.min_max_scale">min_max_scale</a></p>
+</li>
+<li>
+<p><a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.transform_columns.transform_columns">transform_columns</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">import janitor
+import pandas as pd
+import seaborn as sns
+
+sns.set(style=&quot;whitegrid&quot;)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="load-data">Load data</h2>
+<p>We'll use a dataset with fuel efficiency in miles per gallon ("mpg"), engine displacement in cubic centimeters ("disp"), and horsepower ("hp") for a variety of car models.  It's a crazy, but customary, mix of units.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">csv_file = &quot;https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv&quot;
+cars_df = pd.read_csv(csv_file)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Quantities without units are dangerous, so let's use pyjanitor's <code>rename_column</code>...</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.rename_column(&quot;disp&quot;, &quot;disp_cc&quot;)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="examine-raw-data">Examine raw data</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df.head()
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp_cc</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Mazda RX4</td>
+      <td>21.0</td>
+      <td>6</td>
+      <td>160.0</td>
+      <td>110</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mazda RX4 Wag</td>
+      <td>21.0</td>
+      <td>6</td>
+      <td>160.0</td>
+      <td>110</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Datsun 710</td>
+      <td>22.8</td>
+      <td>4</td>
+      <td>108.0</td>
+      <td>93</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Hornet 4 Drive</td>
+      <td>21.4</td>
+      <td>6</td>
+      <td>258.0</td>
+      <td>110</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Hornet Sportabout</td>
+      <td>18.7</td>
+      <td>8</td>
+      <td>360.0</td>
+      <td>175</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="visualize">Visualize</h3>
+<p>Each value makes more sense viewed in comparison to the other models.  We'll use simple <a href="https://seaborn.pydata.org/">Seaborn</a> bar plots.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="mpg-by-model">mpg by model</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;mpg&quot;, ascending=False)
+sns.barplot(
+    y=&quot;model&quot;,
+    x=&quot;mpg&quot;,
+    data=cars_df,
+    color=&quot;b&quot;,
+    orient=&quot;h&quot;,
+)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;mpg&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_11_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="displacement-by-model">displacement by model</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;disp_cc&quot;, ascending=False)
+sns.barplot(y=&quot;model&quot;, x=&quot;disp_cc&quot;, data=cars_df, color=&quot;b&quot;, orient=&quot;h&quot;)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;disp_cc&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_13_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="horsepower-by-model">horsepower by model</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;hp&quot;, ascending=False)
+sns.barplot(y=&quot;model&quot;, x=&quot;hp&quot;, data=cars_df, color=&quot;b&quot;, orient=&quot;h&quot;)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;hp&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_15_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="min-max-normalization"><a href="https://en.wikipedia.org/wiki/Feature_scaling#Rescaling_(min-max_normalization)">min-max normalization</a></h2>
+<p>First we'll use pyjanitor's <a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.min_max_scale.min_max_scale">min_max_scale</a> to rescale the <code>mpg</code>, <code>disp_cc</code>, and <code>hp</code> columns in-place so that each value varies from 0 to 1.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">(
+    cars_df.min_max_scale(col_name=&quot;mpg&quot;, new_max=1, new_min=0)
+    .min_max_scale(col_name=&quot;disp_cc&quot;, new_max=1, new_min=0)
+    .min_max_scale(col_name=&quot;hp&quot;, new_max=1, new_min=0)
+)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp_cc</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>30</th>
+      <td>Maserati Bora</td>
+      <td>0.195745</td>
+      <td>8</td>
+      <td>0.573460</td>
+      <td>1.000000</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Ford Pantera L</td>
+      <td>0.229787</td>
+      <td>8</td>
+      <td>0.698179</td>
+      <td>0.749117</td>
+      <td>4.22</td>
+      <td>3.170</td>
+      <td>14.50</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Duster 360</td>
+      <td>0.165957</td>
+      <td>8</td>
+      <td>0.720629</td>
+      <td>0.681979</td>
+      <td>3.21</td>
+      <td>3.570</td>
+      <td>15.84</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Camaro Z28</td>
+      <td>0.123404</td>
+      <td>8</td>
+      <td>0.695685</td>
+      <td>0.681979</td>
+      <td>3.73</td>
+      <td>3.840</td>
+      <td>15.41</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Chrysler Imperial</td>
+      <td>0.182979</td>
+      <td>8</td>
+      <td>0.920180</td>
+      <td>0.628975</td>
+      <td>3.23</td>
+      <td>5.345</td>
+      <td>17.42</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Lincoln Continental</td>
+      <td>0.000000</td>
+      <td>8</td>
+      <td>0.970067</td>
+      <td>0.575972</td>
+      <td>3.00</td>
+      <td>5.424</td>
+      <td>17.82</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Cadillac Fleetwood</td>
+      <td>0.000000</td>
+      <td>8</td>
+      <td>1.000000</td>
+      <td>0.540636</td>
+      <td>2.93</td>
+      <td>5.250</td>
+      <td>17.98</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Merc 450SLC</td>
+      <td>0.204255</td>
+      <td>8</td>
+      <td>0.510601</td>
+      <td>0.452297</td>
+      <td>3.07</td>
+      <td>3.780</td>
+      <td>18.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Merc 450SE</td>
+      <td>0.255319</td>
+      <td>8</td>
+      <td>0.510601</td>
+      <td>0.452297</td>
+      <td>3.07</td>
+      <td>4.070</td>
+      <td>17.40</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Merc 450SL</td>
+      <td>0.293617</td>
+      <td>8</td>
+      <td>0.510601</td>
+      <td>0.452297</td>
+      <td>3.07</td>
+      <td>3.730</td>
+      <td>17.60</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Pontiac Firebird</td>
+      <td>0.374468</td>
+      <td>8</td>
+      <td>0.820404</td>
+      <td>0.434629</td>
+      <td>3.08</td>
+      <td>3.845</td>
+      <td>17.05</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Hornet Sportabout</td>
+      <td>0.353191</td>
+      <td>8</td>
+      <td>0.720629</td>
+      <td>0.434629</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Ferrari Dino</td>
+      <td>0.395745</td>
+      <td>6</td>
+      <td>0.184335</td>
+      <td>0.434629</td>
+      <td>3.62</td>
+      <td>2.770</td>
+      <td>15.50</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Dodge Challenger</td>
+      <td>0.217021</td>
+      <td>8</td>
+      <td>0.615864</td>
+      <td>0.346290</td>
+      <td>2.76</td>
+      <td>3.520</td>
+      <td>16.87</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>AMC Javelin</td>
+      <td>0.204255</td>
+      <td>8</td>
+      <td>0.580943</td>
+      <td>0.346290</td>
+      <td>3.15</td>
+      <td>3.435</td>
+      <td>17.30</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Merc 280C</td>
+      <td>0.314894</td>
+      <td>6</td>
+      <td>0.240708</td>
+      <td>0.250883</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.90</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Merc 280</td>
+      <td>0.374468</td>
+      <td>6</td>
+      <td>0.240708</td>
+      <td>0.250883</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.30</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Lotus Europa</td>
+      <td>0.851064</td>
+      <td>4</td>
+      <td>0.059865</td>
+      <td>0.215548</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Mazda RX4</td>
+      <td>0.451064</td>
+      <td>6</td>
+      <td>0.221751</td>
+      <td>0.204947</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mazda RX4 Wag</td>
+      <td>0.451064</td>
+      <td>6</td>
+      <td>0.221751</td>
+      <td>0.204947</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Hornet 4 Drive</td>
+      <td>0.468085</td>
+      <td>6</td>
+      <td>0.466201</td>
+      <td>0.204947</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Volvo 142E</td>
+      <td>0.468085</td>
+      <td>4</td>
+      <td>0.124470</td>
+      <td>0.201413</td>
+      <td>4.11</td>
+      <td>2.780</td>
+      <td>18.60</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Valiant</td>
+      <td>0.327660</td>
+      <td>6</td>
+      <td>0.383886</td>
+      <td>0.187279</td>
+      <td>2.76</td>
+      <td>3.460</td>
+      <td>20.22</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Toyota Corona</td>
+      <td>0.472340</td>
+      <td>4</td>
+      <td>0.122225</td>
+      <td>0.159011</td>
+      <td>3.70</td>
+      <td>2.465</td>
+      <td>20.01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Merc 230</td>
+      <td>0.527660</td>
+      <td>4</td>
+      <td>0.173859</td>
+      <td>0.151943</td>
+      <td>3.92</td>
+      <td>3.150</td>
+      <td>22.90</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Datsun 710</td>
+      <td>0.527660</td>
+      <td>4</td>
+      <td>0.092043</td>
+      <td>0.144876</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Porsche 914-2</td>
+      <td>0.663830</td>
+      <td>4</td>
+      <td>0.122724</td>
+      <td>0.137809</td>
+      <td>4.43</td>
+      <td>2.140</td>
+      <td>16.70</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Fiat X1-9</td>
+      <td>0.719149</td>
+      <td>4</td>
+      <td>0.019706</td>
+      <td>0.049470</td>
+      <td>4.08</td>
+      <td>1.935</td>
+      <td>18.90</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Fiat 128</td>
+      <td>0.936170</td>
+      <td>4</td>
+      <td>0.018957</td>
+      <td>0.049470</td>
+      <td>4.08</td>
+      <td>2.200</td>
+      <td>19.47</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Toyota Corolla</td>
+      <td>1.000000</td>
+      <td>4</td>
+      <td>0.000000</td>
+      <td>0.045936</td>
+      <td>4.22</td>
+      <td>1.835</td>
+      <td>19.90</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Merc 240D</td>
+      <td>0.595745</td>
+      <td>4</td>
+      <td>0.188576</td>
+      <td>0.035336</td>
+      <td>3.69</td>
+      <td>3.190</td>
+      <td>20.00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Honda Civic</td>
+      <td>0.851064</td>
+      <td>4</td>
+      <td>0.011474</td>
+      <td>0.000000</td>
+      <td>4.93</td>
+      <td>1.615</td>
+      <td>18.52</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The shapes of the bar graphs remain the same, but the horizontal axes show the new scale.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="mpg-min-max-normalized">mpg (min-max normalized)</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;mpg&quot;, ascending=False)
+sns.barplot(y=&quot;model&quot;, x=&quot;mpg&quot;, data=cars_df, color=&quot;b&quot;, orient=&quot;h&quot;)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;mpg&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_20_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="displacement-min-max-normalized">displacement (min-max normalized)</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;disp_cc&quot;, ascending=False)
+sns.barplot(y=&quot;model&quot;, x=&quot;disp_cc&quot;, data=cars_df, color=&quot;b&quot;, orient=&quot;h&quot;)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;disp_cc&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_22_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="horsepower-min-max-normalized">horsepower (min-max normalized)</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;hp&quot;, ascending=False)
+sns.barplot(y=&quot;model&quot;, x=&quot;hp&quot;, data=cars_df, color=&quot;b&quot;, orient=&quot;h&quot;)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;hp&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_24_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="standardization-z-score">Standardization (z-score)</h2>
+<p>Next we'll convert to <a href="https://en.wikipedia.org/wiki/Standard_score">standard scores</a>.  This expresses each value in terms of its standard deviations from the mean, expressing where each model stands in relation to the others.</p>
+<p>We'll use pyjanitor's <a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.transform_columns.transform_columns">transform_columns</a> to apply the standard score calculation, <code>(x - x.mean()) / x.std()</code>, to each value in each of the columns we're evaluating.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df.transform_columns(
+    [&quot;mpg&quot;, &quot;disp_cc&quot;, &quot;hp&quot;], lambda x: (x - x.mean()) / x.std(), elementwise=False
+)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp_cc</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>30</th>
+      <td>Maserati Bora</td>
+      <td>-0.844644</td>
+      <td>8</td>
+      <td>0.567039</td>
+      <td>2.746567</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Ford Pantera L</td>
+      <td>-0.711907</td>
+      <td>8</td>
+      <td>0.970465</td>
+      <td>1.711021</td>
+      <td>4.22</td>
+      <td>3.170</td>
+      <td>14.50</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Duster 360</td>
+      <td>-0.960789</td>
+      <td>8</td>
+      <td>1.043081</td>
+      <td>1.433903</td>
+      <td>3.21</td>
+      <td>3.570</td>
+      <td>15.84</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Camaro Z28</td>
+      <td>-1.126710</td>
+      <td>8</td>
+      <td>0.962396</td>
+      <td>1.433903</td>
+      <td>3.73</td>
+      <td>3.840</td>
+      <td>15.41</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Chrysler Imperial</td>
+      <td>-0.894420</td>
+      <td>8</td>
+      <td>1.688562</td>
+      <td>1.215126</td>
+      <td>3.23</td>
+      <td>5.345</td>
+      <td>17.42</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Lincoln Continental</td>
+      <td>-1.607883</td>
+      <td>8</td>
+      <td>1.849932</td>
+      <td>0.996348</td>
+      <td>3.00</td>
+      <td>5.424</td>
+      <td>17.82</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Cadillac Fleetwood</td>
+      <td>-1.607883</td>
+      <td>8</td>
+      <td>1.946754</td>
+      <td>0.850497</td>
+      <td>2.93</td>
+      <td>5.250</td>
+      <td>17.98</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Merc 450SLC</td>
+      <td>-0.811460</td>
+      <td>8</td>
+      <td>0.363713</td>
+      <td>0.485868</td>
+      <td>3.07</td>
+      <td>3.780</td>
+      <td>18.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Merc 450SE</td>
+      <td>-0.612354</td>
+      <td>8</td>
+      <td>0.363713</td>
+      <td>0.485868</td>
+      <td>3.07</td>
+      <td>4.070</td>
+      <td>17.40</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Merc 450SL</td>
+      <td>-0.463025</td>
+      <td>8</td>
+      <td>0.363713</td>
+      <td>0.485868</td>
+      <td>3.07</td>
+      <td>3.730</td>
+      <td>17.60</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Pontiac Firebird</td>
+      <td>-0.147774</td>
+      <td>8</td>
+      <td>1.365821</td>
+      <td>0.412942</td>
+      <td>3.08</td>
+      <td>3.845</td>
+      <td>17.05</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Hornet Sportabout</td>
+      <td>-0.230735</td>
+      <td>8</td>
+      <td>1.043081</td>
+      <td>0.412942</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Ferrari Dino</td>
+      <td>-0.064813</td>
+      <td>6</td>
+      <td>-0.691647</td>
+      <td>0.412942</td>
+      <td>3.62</td>
+      <td>2.770</td>
+      <td>15.50</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Dodge Challenger</td>
+      <td>-0.761683</td>
+      <td>8</td>
+      <td>0.704204</td>
+      <td>0.048313</td>
+      <td>2.76</td>
+      <td>3.520</td>
+      <td>16.87</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>AMC Javelin</td>
+      <td>-0.811460</td>
+      <td>8</td>
+      <td>0.591245</td>
+      <td>0.048313</td>
+      <td>3.15</td>
+      <td>3.435</td>
+      <td>17.30</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Merc 280C</td>
+      <td>-0.380064</td>
+      <td>6</td>
+      <td>-0.509299</td>
+      <td>-0.345486</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.90</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Merc 280</td>
+      <td>-0.147774</td>
+      <td>6</td>
+      <td>-0.509299</td>
+      <td>-0.345486</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.30</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Lotus Europa</td>
+      <td>1.710547</td>
+      <td>4</td>
+      <td>-1.094266</td>
+      <td>-0.491337</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Mazda RX4</td>
+      <td>0.150885</td>
+      <td>6</td>
+      <td>-0.570620</td>
+      <td>-0.535093</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mazda RX4 Wag</td>
+      <td>0.150885</td>
+      <td>6</td>
+      <td>-0.570620</td>
+      <td>-0.535093</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Hornet 4 Drive</td>
+      <td>0.217253</td>
+      <td>6</td>
+      <td>0.220094</td>
+      <td>-0.535093</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Volvo 142E</td>
+      <td>0.217253</td>
+      <td>4</td>
+      <td>-0.885292</td>
+      <td>-0.549678</td>
+      <td>4.11</td>
+      <td>2.780</td>
+      <td>18.60</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Valiant</td>
+      <td>-0.330287</td>
+      <td>6</td>
+      <td>-0.046167</td>
+      <td>-0.608019</td>
+      <td>2.76</td>
+      <td>3.460</td>
+      <td>20.22</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Toyota Corona</td>
+      <td>0.233846</td>
+      <td>4</td>
+      <td>-0.892553</td>
+      <td>-0.724700</td>
+      <td>3.70</td>
+      <td>2.465</td>
+      <td>20.01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Merc 230</td>
+      <td>0.449543</td>
+      <td>4</td>
+      <td>-0.725535</td>
+      <td>-0.753870</td>
+      <td>3.92</td>
+      <td>3.150</td>
+      <td>22.90</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Datsun 710</td>
+      <td>0.449543</td>
+      <td>4</td>
+      <td>-0.990182</td>
+      <td>-0.783040</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Porsche 914-2</td>
+      <td>0.980492</td>
+      <td>4</td>
+      <td>-0.890939</td>
+      <td>-0.812211</td>
+      <td>4.43</td>
+      <td>2.140</td>
+      <td>16.70</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Fiat X1-9</td>
+      <td>1.196190</td>
+      <td>4</td>
+      <td>-1.224169</td>
+      <td>-1.176840</td>
+      <td>4.08</td>
+      <td>1.935</td>
+      <td>18.90</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Fiat 128</td>
+      <td>2.042389</td>
+      <td>4</td>
+      <td>-1.226589</td>
+      <td>-1.176840</td>
+      <td>4.08</td>
+      <td>2.200</td>
+      <td>19.47</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Toyota Corolla</td>
+      <td>2.291272</td>
+      <td>4</td>
+      <td>-1.287910</td>
+      <td>-1.191425</td>
+      <td>4.22</td>
+      <td>1.835</td>
+      <td>19.90</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Merc 240D</td>
+      <td>0.715018</td>
+      <td>4</td>
+      <td>-0.677931</td>
+      <td>-1.235180</td>
+      <td>3.69</td>
+      <td>3.190</td>
+      <td>20.00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Honda Civic</td>
+      <td>1.710547</td>
+      <td>4</td>
+      <td>-1.250795</td>
+      <td>-1.381032</td>
+      <td>4.93</td>
+      <td>1.615</td>
+      <td>18.52</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="standardized-mpg">Standardized mpg</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;mpg&quot;, ascending=False)
+sns.barplot(
+    y=&quot;model&quot;,
+    x=&quot;mpg&quot;,
+    data=cars_df,
+    color=&quot;b&quot;,
+    orient=&quot;h&quot;,
+)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;mpg&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_28_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="standardized-displacement">Standardized displacement</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;disp_cc&quot;, ascending=False)
+sns.barplot(y=&quot;model&quot;, x=&quot;disp_cc&quot;, data=cars_df, color=&quot;b&quot;, orient=&quot;h&quot;)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;disp_cc&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_30_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="standardized-horsepower">Standardized horsepower</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">cars_df = cars_df.sort_values(&quot;hp&quot;, ascending=False)
+sns.barplot(y=&quot;model&quot;, x=&quot;hp&quot;, data=cars_df, color=&quot;b&quot;, orient=&quot;h&quot;)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:xlabel=&#39;hp&#39;, ylabel=&#39;model&#39;&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="output_32_1.png"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../groupby_agg/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Groupby agg" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Groupby agg
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pivot_long_wide/" class="md-footer__link md-footer__link--next" aria-label="Next: Pivot long wide" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Pivot long wide
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+      
+        <script src="../js/config.js"></script>
+      
+    
+  </body>
+</html>
