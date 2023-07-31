@@ -9,7 +9,7 @@ repos:
   - id: check-yaml
   - id: check-added-large-files
 - repo: https://github.com/psf/black
-  rev: 23.1.0
+  rev: 23.7.0
   hooks:
   - id: black
     args: [--config, pyproject.toml]
@@ -24,7 +24,7 @@ repos:
   - id: darglint
     args: [-v 2]  # this config makes the error messages a bit less cryptic.
 - repo: https://github.com/PyCQA/flake8
-  rev: 6.0.0
+  rev: 6.1.0
   hooks:
     - id: flake8
       args: [--exclude, nbconvert_config.py]
@@ -33,7 +33,7 @@ repos:
   hooks:
     - id: nbstripout
 - repo: https://github.com/nbQA-dev/nbQA
-  rev: 1.6.4
+  rev: 1.7.0
   hooks:
     - id: nbqa-black
     - id: nbqa-isort
